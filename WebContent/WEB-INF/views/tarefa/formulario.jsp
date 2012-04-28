@@ -5,11 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="views/style.css" />
 <title>Add tasks</title>
 </head>
 <body>
 	<h3>Adicionar tarefas</h3>
-	<form:errors path="tarefa.descricao" class="erro"/>
+	<b><form:errors path="tarefa.descricao" /></b>
 	<form action="adicionaTarefa" method="post">
 		Descrição da tarefa: <br>
 		<textarea name="descricao" rows="5" cols="100"></textarea><br>
