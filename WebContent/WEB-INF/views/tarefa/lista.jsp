@@ -30,6 +30,8 @@
 				<td>
 					<fmt:formatDate value="${ tarefa.dataFinalizacao.time }" pattern="dd/MM/yyyy"/>
 				</td>
+				<td><a href="mostraTarefa?id=${ tarefa.id }">ALTERAR</a></td>
+				<td><a href="removeTarefa?id=${ tarefa.id }">REMOVER</a></td>
 			</tr>
 		</c:forEach>
 	</table>

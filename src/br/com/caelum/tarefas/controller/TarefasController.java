@@ -25,7 +25,7 @@ public class TarefasController {
 		
 		TarefaDAO dao = new TarefaDAO();
 		dao.adiciona(tarefa);
-		return "tarefa/adicionada";
+		return "redirect:listaTarefas";
 	}
 	
 	@RequestMapping("listaTarefas")
@@ -33,5 +33,26 @@ public class TarefasController {
 		TarefaDAO dao = new TarefaDAO();
 		model.addAttribute("tarefas", dao.lista());
 		return "tarefa/lista";
+	}
+	
+	@RequestMapping("removeTarefa")
+	public String remove(Tarefa tarefa) {
+		TarefaDAO dao = new TarefaDAO();
+		dao.remove(tarefa);
+		return "redirect:listaTarefas";
+	}
+	
+	@RequestMapping("mostraTarefa")
+	public String mostra(Long id, Model model){
+		TarefaDAO dao = new TarefaDAO();
+		model.addAttribute("tarefa", dao.buscaPorId(id));
+		return "tarefa/mostra";
+	}
+	
+	@RequestMapping("alteraTarefa")
+	public String altera(Tarefa tarefa) {
+		TarefaDAO dao = new TarefaDAO();
+		dao.altera(tarefa);
+		return "redirect:listaTarefas";
 	}
 }
