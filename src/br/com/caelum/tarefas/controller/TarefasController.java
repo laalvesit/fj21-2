@@ -37,10 +37,10 @@ public class TarefasController {
 	}
 	
 	@RequestMapping("removeTarefa")
-	public String remove(Tarefa tarefa) {
+	public void remove(Tarefa tarefa, HttpServletResponse response) {
 		TarefaDAO dao = new TarefaDAO();
 		dao.remove(tarefa);
-		return "redirect:listaTarefas";
+		response.setStatus(200);
 	}
 	
 	@RequestMapping("mostraTarefa")

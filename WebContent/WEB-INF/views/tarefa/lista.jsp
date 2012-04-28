@@ -19,6 +19,13 @@
 					}
 			);
 		}
+		function removeTarefa(id){
+			$.post("removeTarefa", { 'id': id },
+					function(){
+						$( "#tarefa_"+ id).closest("tr").hide();
+					}
+			);
+		}
 	</script>
 	<a href="novaTarefa">Criar nova tarefa</a><br><br>
 	<table>
@@ -44,7 +51,9 @@
 					<fmt:formatDate value="${ tarefa.dataFinalizacao.time }" pattern="dd/MM/yyyy"/>
 				</td>
 				<td><a href="mostraTarefa?id=${ tarefa.id }">ALTERAR</a></td>
-				<td><a href="removeTarefa?id=${ tarefa.id }">REMOVER</a></td>
+				<td id="tarefa_${ tarefa.id }">
+					<a href="#" onClick="removeTarefa(${ tarefa.id })">REMOVER</a>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
