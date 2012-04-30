@@ -16,7 +16,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 		if (request.getSession().getAttribute("usuarioLogado") != null){
 			return true;
 		}
-		
+		//redireciona para o lofinForm
 		response.sendRedirect("loginForm");
 		return super.preHandle(request, response, handler);
 	}
